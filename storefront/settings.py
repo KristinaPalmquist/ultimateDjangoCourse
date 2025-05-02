@@ -35,11 +35,13 @@ INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
-    # "django.contrib.sessions",
+    "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'playground',
+    "playground",
     "debug_toolbar",
+    "store",
+    "tags",
 ]
 
 MIDDLEWARE = [
@@ -59,10 +61,10 @@ ROOT_URLCONF = "storefront.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "APP_DIRS": True,
         "DIRS": [
             os.path.join(BASE_DIR, 'templates')
         ],
-        "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
                 "django.template.context_processors.request",

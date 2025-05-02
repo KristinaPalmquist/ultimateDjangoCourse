@@ -128,3 +128,57 @@ type x + enter
 for instance
 arrow over - jump over
 arrow down - step into function
+
+django-debug-toolbar
+great tool especially for SQL
+
+MODELS:
+figure out what pieces of data we need to store
+in a web store:
+* products (title, description, price, inventory etc.)
+* collection/category (title)
+  + relationship between them
+  + featured product relationship
+(ID attribute is created automatically in Django)
+
+* cart (created_at) - anonymous user
+  + relationship with products or
+* cartItem (quantity)
+
+* customer (name, email)
+* order (placed_at)
+  + relationship customer
+  + relatinship product or
+* orderItem (quantity)
+
+* tag (label)
+
+organizing models in apps
+a django project contains one or more apps
+each app has their own data model
+
+option 1: MONOLITH - single app called store with all entities
+  (can be distributed and shared through pipenv install)
+  problem: growing, encreased complexity, bloated with too many things
+
+each app should do one thing and do it well
+
+option 2: separate apps for
+  Products - Product, Collection, Tag
+  Customers - Customer
+  Carts - Cart, CartItem
+  Orders - Order, OrderItem
+  problem: coupling, all apps depend on eachother, all apps have to be installed one by one, not self contained, new version of one app might cause breaking change in other app, are not useful without eachother
+
+highly related features should be bundled together
+
+option 3: middleground
+  Tags - not specific to e-commerce application (Tag, TaggedItem)
+  Store - (Product, Collection, Customer, Cart, CartItem, Order, OrderItem)
+each app is self-contained, zero coupling, either or both can be used independently
+
+CREATE APPS:
+python manage.py startapp *name*
+
+register in settings installed apps
+create models for the apps
