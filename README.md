@@ -117,4 +117,14 @@ DEBUGGING IN VSCODE:
 run code line by line to see exactly where something hasa gone wrong
 click on play/bug icon on the left side
 create a launch.json file so that vs code know how to run or debug the application
-select django in list
+select python debugger > django in list
+set breakpoint
+step through
+on left side inspect variable values
+at each stage
+no variables in watch window
+add by clicking +
+type x + enter
+for instance
+arrow over - jump over
+arrow down - step into function
